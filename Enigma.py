@@ -137,11 +137,16 @@ class classCrypt:
             txt = txt.upper()
             mex = txt.split(' ')
             mex.pop(0)
-            print(mex[0])
             if len(mex) > 10:
                 return "insert [1..10] plug"
             self.PlugFill(mex)
             return "ok"
+        elif "/help" in txt:
+            txt = "/start to set rotors to 0\r\n"
+            txt = txt + "/crypt: to crypt words or a sentence\r\n"
+            txt = txt + "/key: to change rotor settings\r\n"
+            txt = txt + "/plug to change plug settings\r\n"
+            return txt
         else:
             return "unknown command"
 
@@ -176,9 +181,9 @@ class classTelegram:
 
     def init(self):
         self.EnigmaBot = telepot.Bot("639030075:AAHAghY9CHRaradDCsPqGZOWMzHHiSNUyoE")
-        me = self.EnigmaBot.getMe()
+        # me = self.EnigmaBot.getMe()
         # pprint(me)
-        resp = self.EnigmaBot.getUpdates()
+        # resp = self.EnigmaBot.getUpdates()
         # pprint(resp)
 
     def handle(self, msg):
